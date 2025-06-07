@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Índice de Ejercicios - Semana 7</title>    <style>        @keyframes gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }        @keyframes glow {
+            0% { text-shadow: 0 0 5px #ff0055, 0 0 10px #ff0055, 0 0 15px #ff0055; }
+            50% { text-shadow: 0 0 10px #ff0055, 0 0 20px #ff0055, 0 0 30px #ff0055; }
+            100% { text-shadow: 0 0 5px #ff0055, 0 0 10px #ff0055, 0 0 15px #ff0055; }
+        }        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background: linear-gradient(-45deg, #ffffff, #f5f5f5, #ffffff, #f5f5f5);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+            min-height: 100vh;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 32px;
+            border-radius: 20px;            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .container::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;            background: linear-gradient(45deg, #ff0055, #ff0000, #ff0055);
+            border-radius: 20px;
+            z-index: -1;
+            animation: gradient 10s linear infinite;
+            opacity: 0.5;
+        }        h1 {
+            color: #000;
+            font-size: 28px;
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 15px;
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;            background: linear-gradient(90deg, #000, #333);
+            border-radius: 3px;
+        }        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 20px;
+            justify-items: center;
+        }        .button {
+            width: 100%;
+            max-width: 280px;
+            padding: 15px 25px;
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            backdrop-filter: blur(5px);
+        }        .button::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;            background: linear-gradient(45deg, #f0f0f0, #ffffff, #f0f0f0);
+            border-radius: 15px;
+            z-index: -1;
+            animation: gradient 10s linear infinite;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .button:hover::before {
+            opacity: 1;
+        }
+
+        .button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;            background: linear-gradient(90deg, transparent, rgba(0, 0, 0, 0.05), transparent);
+            transition: 0.5s;
+        }
+
+        .button:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1),
+                       0 0 30px rgba(0, 0, 0, 0.05),
+                       0 0 45px rgba(0, 0, 0, 0.03);
+        }
+
+        .button:hover::after {
+            left: 100%;
+        }        a {            color: #000;
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            display: block;
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        a:hover {
+            color: #333;
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.2),
+                       0 0 10px rgba(0, 0, 0, 0.1),
+                       0 0 15px rgba(0, 0, 0, 0.1);
+        }        .footer {
+            text-align: center;
+            margin-top: 50px;
+            color: #333;
+            font-size: 13px;
+            padding: 20px 0;
+            border-top: 1px solid rgba(0, 0, 0, 0.1);
+            text-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 15px;
+            }
+            
+            .container {
+                padding: 20px;
+            }
+
+            h1 {
+                font-size: 24px;
+            }
+
+            li {
+                margin: 12px 0;
+                padding: 10px 15px;
+            }
+
+            a {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Índice de Ejercicios - Semana 7</h1>        <div class="grid-container">
+            <div class="button">
+                <a href="ej01_una_imagen.html">Ejercicio 1 - Una imagen</a>
+            </div>
+            <div class="button">
+                <a href="ej02_una_imagenenoexiste.html">Ejercicio 2 - Imagen no existe</a>
+            </div>
+            <div class="button">
+                <a href="ej03_una_imagen.html">Ejercicio 3 - Una imagen</a>
+            </div>
+            <div class="button">
+                <a href="ej04_reproducir_audio.html">Ejercicio 4 - Audio</a>
+            </div>
+            <div class="button">
+                <a href="ej05_reproducir_video.html">Ejercicio 5 - Video</a>
+            </div>
+            <div class="button">
+                <a href="ej06_reproducir_video_youtube.html">Ejercicio 6 - YouTube</a>
+            </div>
+            <div class="button">
+                <a href="ej07_una_imagenfavicon.html">Ejercicio 7 - Favicon</a>
+            </div>
+            <div class="button">
+                <a href="ej08_una_imagenfigure.html">Ejercicio 8 - Figure</a>
+            </div>
+            <div class="button">
+                <a href="ej09_obras_literarias.html">Ejercicio 9 - Obras literarias</a>
+            </div>
+            <div class="button">
+                <a href="ej10_papas_fritas.html">Ejercicio 10 - Papas fritas</a>
+            </div>
+        </div><div class="footer">
+            &copy; 2025 Ejercicios Multimedia HTML - Semana 7<br>
+            Desarrollado con 💻 por Jhens Daniel Meza Huatuco
+        </div>
+    </div>
+</body>
+</html>
